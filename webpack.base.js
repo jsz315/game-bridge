@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     //指定入口文件
@@ -81,5 +82,8 @@ module.exports = {
             // both options are optional
             filename: 'css/[name].css'
         }),
+        new CopyWebpackPlugin([
+            {from: './static', to: './static'}
+        ])
     ]
 };

@@ -7,10 +7,8 @@ const path = require('path')
 const mock = function (app) {
   app.all(/youtui/, (req, res) => {
     // mock路由，优先查找JS，其次是JSON，找不到返回默认值
-    const JSFilePath = path.join(__dirname, './mock/', `${req.path}.js`)
-    const JSONFilePath = path.join(__dirname, './mock/', `${req.path}.json`)
-
-    console.log(req.path)
+    const JSFilePath = path.join(__dirname, './static/mock/', `${req.path}.js`)
+    const JSONFilePath = path.join(__dirname, './static/mock/', `${req.path}.json`)
 
     if (fs.existsSync(JSFilePath)) {
       require(JSFilePath)(req, res)

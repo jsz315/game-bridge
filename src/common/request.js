@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-const NO_SERVER = window.CFG && window.CFG.baseURL;
+const NO_SERVER = window.CUSTOM && window.CUSTOM.noServer;
 const DATA_FORM = 'application/x-www-form-urlencoded';
 const DATA_JSON = 'application/json';
 
@@ -9,9 +9,7 @@ axios.defaults.headers.common['token'] = 'jsz';
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // axios.defaults.headers.post['Content-type'] = 'application/json';
 
-if(NO_SERVER){
-    axios.defaults.baseURL = window.CFG.baseURL;
-}
+// axios.defaults.baseURL = window.CFG.mockPath;
 
 function insertExt(url){
     var list = url.split("?");
@@ -29,6 +27,9 @@ axios.interceptors.request.use(
         if(NO_SERVER){
             config.url = insertExt(config.url);
         }
+        console.log("before:" + config.url);
+        config.url = window.CUSTOM.mockPath + config.url;
+        console.log("after:" + config.url);
         return config;
     }, 
     error => {
