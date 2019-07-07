@@ -1,0 +1,2537 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+body::after{
+  display: block;
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/web/long-bg2.png") repeat-x;
+  background-size: 100% 100%;
+}
+
+#recordCanvas{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.bridgeGame{
+  .loading{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 16;
+    background: url("../assets/web/title.png") no-repeat center;
+    background-size: 585px 132px;
+    background-color: #ffffff;
+  }
+  .one-line{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .game{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 3;
+      .controll{
+        display: none;
+        position: absolute;
+        font-size: 20px;
+        right: 0;
+        top: 30px;
+        width: 120px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        color: #494b51;
+        background: #e4e4e4;
+        &.auto{
+          color: #ffb68c;
+          background: #b44403;
+        }
+      }
+  }
+  #renderCanvas{
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+  }
+  .num{
+      font-family: "Chainreact Block Boxter";
+  }
+  .red{
+      color: red;
+  }
+  .pages{
+      width: 750px;
+      height: 1206px;
+      position: relative;
+  }
+  .letter{
+    font-size: 30px;
+  }
+  .pop-mask{
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      justify-content: center;
+      align-items: center;
+  }
+  
+}
+#bridgeGame{
+  .insp-wrapper{
+    font-size: 16px;
+  }
+}
+#RewardSkin{
+  z-index: 12;
+}
+.RewardSkin{
+    width: 441px;
+    height: 490px;
+    position: relative;
+    .dom0{
+      width: 441px;
+      height: 490px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/huode.png") no-repeat center;
+      background-size: contain;
+      position: relative;
+    }
+    .goodBtn{
+      width: 288px;
+      height: 73px;
+      left: 77px;
+      top: 382px;
+      background: url("../assets/web/good.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom2{
+      width: 388px;
+      height: 42px;
+      left: 24px;
+      top: 287px;
+      color: #161616;
+      font-size: 28px;
+      text-align: center;
+      line-height: 42px;
+      position: absolute;
+    }
+}
+
+
+.FriendItemSkin{
+    width: 660px;
+    height: 118px;
+    position: relative;
+    &:nth-child(2n+1){
+      background: rgba(255, 255, 255, 0.05);
+    }
+    &:nth-child(1) .rankNum{
+      background: url("../assets/web/coin1.png") no-repeat center;
+      background-size: contain;
+      font-size: 0;
+    }
+    &:nth-child(2) .rankNum{
+      background: url("../assets/web/coin2.png") no-repeat center;
+      background-size: contain;
+      font-size: 0;
+    }
+    &:nth-child(3) .rankNum{
+      background: url("../assets/web/coin3.png") no-repeat center;
+      background-size: contain;
+      font-size: 0;
+    }
+    .rankNum{
+      width: 56px;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      font-size: 32px;
+      color: #ffffff;
+      left: 29px;
+      top: 35px;
+      position: absolute;
+    }
+    .header{
+      width: 70px;
+      height: 70px;
+      left: 106px;
+      top: 23.5px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .score{
+      width: 151px;
+      height: 30px;
+      left: 362px;
+      top: 44px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: center;
+      line-height: 30px;
+      position: absolute;
+    }
+    .world{
+      width: 96px;
+      height: 30px;
+      left: 537px;
+      top: 44px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: right;
+      line-height: 30px;
+      position: absolute;
+    }
+    .name{
+      width: 158px;
+      height: 24px;
+      left: 203px;
+      top: 24px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: left;
+      line-height: 24px;
+      position: absolute;
+    }
+    .state{
+      width: 133px;
+      height: 28px;
+      left: 203px;
+      top: 63px;
+      color: #7fd89d;
+      font-size: 28px;
+      text-align: left;
+      line-height: 28px;
+      position: absolute;
+      &.red{
+        color: crimson;
+      }
+    }
+}
+
+.FecthSkin{
+    width: 580px;
+    height: 540px;
+    position: relative;
+    .dom0_0{
+      width: 580px;
+      height: 540px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/lingqu.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .downloadBtn{
+      width: 447px;
+      height: 88px;
+      left: 66.5px;
+      top: 417px;
+      background-color: rgba(0,0,0,0);
+      position: absolute;
+    }
+    .closeBtn{
+      width: 60px;
+      height: 56px;
+      left: 516.5px;
+      top: 4px;
+      background-color: rgba(0,0,0,0);
+      position: absolute;
+    }
+    .dom0{
+      width: 580px;
+      height: 540px;
+      left: 0px;
+      top: 0px;
+      position: absolute;
+    }
+}
+
+.HelpListSkin{
+    .dom0_0{
+      width: 550px;
+      height: 280px;
+      left: 0px;
+      top: 207.88px;
+      background-color: #ffffff;
+      border-radius: 40px;
+      position: absolute;
+    }
+    .dom0_1_0{
+      width: 549px;
+      height: 332px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/logo.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .tip{
+      width: 425.39px;
+      height: 42.13px;
+      left: 62.9px;
+      top: 259.48px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: center;
+      line-height: 42.13px;
+      position: absolute;
+    }
+    .dom0_1{
+      width: 549px;
+      height: 332px;
+      left: 1px;
+      top: -7.59px;
+      position: absolute;
+      transform: scale(0.84);
+    }
+    .taHeader{
+      width: 90px;
+      height: 90px;
+      left: 16px;
+      top: 0px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .taName{
+      width: 122.43px;
+      height: 33.09px;
+      left: 0px;
+      top: 97.81px;
+      color: #666666;
+      font-size: 24px;
+      text-align: center;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .dom0_2{
+      width: 123px;
+      height: 131px;
+      left: 35px;
+      top: 338.78px;
+      position: absolute;
+    }
+    .dom0_3_0{
+      width: 132px;
+      height: 33.09px;
+      left: 0px;
+      top: 0px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .startScore{
+      width: 147.15px;
+      height: 46px;
+      left: 119.06px;
+      top: 0px;
+      color: #666666;
+      font-size: 42px;
+      vertical-align: bottom;
+      text-align: right;
+      position: absolute;
+    }
+    .helpScore{
+      width: 147.15px;
+      height: 46px;
+      left: 119.06px;
+      top: 46.11px;
+      color: #666666;
+      font-size: 42px;
+      text-align: right;
+      vertical-align: bottom;
+      position: absolute;
+    }
+    .lastScore{
+      width: 147.15px;
+      height: 46px;
+      left: 119.06px;
+      top: 92.34px;
+      color: #666666;
+      font-size: 42px;
+      text-align: right;
+      vertical-align: bottom;
+      position: absolute;
+    }
+    .dom0_3_4{
+      width: 132px;
+      height: 33.09px;
+      left: 0px;
+      top: 48px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .dom0_3_5{
+      width: 132px;
+      height: 33.09px;
+      left: 0px;
+      top: 93px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .dom0_3{
+      width: 267px;
+      height: 140px;
+      left: 236.73px;
+      top: 323.18px;
+      position: absolute;
+    }
+    .dom0_4{
+      width: 2px;
+      height: 124px;
+      left: 191px;
+      top: 340px;
+      background-color: #e8e8e8;
+      position: absolute;
+    }
+    .dom0{
+      width: 550px;
+      height: 488px;
+      left: 97.98px;
+      top: -27.51px;
+      position: absolute;
+    }
+    .dom1_0{
+      width: 660px;
+      height: 512px;
+      left: 0px;
+      top: 0px;
+      background-color: #494b51;
+      border-radius: 8px;
+      position: absolute;
+    }
+    .friendList{
+      width: 660px;
+      height: 440px;
+      left: 0px;
+      top: 70.31px;
+      border-radius: 8px;
+      position: absolute;
+      overflow: auto;
+    }
+    .dom1_2{
+      width: 147.27px;
+      height: 42.12px;
+      left: 8.41px;
+      top: 17px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .dom1_3{
+      width: 138.18px;
+      height: 42.12px;
+      left: 508.44px;
+      top: 17px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .dom1{
+      width: 660px;
+      height: 512px;
+      left: 44.96px;
+      top: 481.26px;
+      position: absolute;
+    }
+    .selfBtn{
+      width: 283.94px;
+      height: 40.61px;
+      left: 236.03px;
+      top: 1139.48px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: center;
+      line-height: 40.61px;
+      position: absolute;
+    }
+    .pkBtn{
+      width: 392px;
+      height: 103px;
+      left: 176.98px;
+      top: 1025.89px;
+      background: url("../assets/web/jieli.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+}
+
+.HelpNoneSkin{
+    .dom0_0{
+      width: 610px;
+      height: 524px;
+      left: 0px;
+      top: 215.47px;
+      background-color: #ffffff;
+      border-radius: 40px;
+      position: absolute;
+    }
+    .dom0_1_0{
+      width: 549px;
+      height: 332px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/logo.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .tip{
+      width: 425.39px;
+      height: 42.13px;
+      left: 62.9px;
+      top: 259.48px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: center;
+      line-height: 42.13px;
+      position: absolute;
+    }
+    .dom0_1{
+      width: 549px;
+      height: 332px;
+      left: 31.31px;
+      top: 0px;
+      position: absolute;
+    }
+    .taHeader{
+      width: 90px;
+      height: 90px;
+      left: 16px;
+      top: 0px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .taName{
+      width: 122.43px;
+      height: 33.09px;
+      left: 0px;
+      top: 97.81px;
+      color: #666666;
+      font-size: 24px;
+      text-align: center;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .dom0_2{
+      width: 123px;
+      height: 131px;
+      left: 65.31px;
+      top: 378.22px;
+      position: absolute;
+    }
+    .dom0_3_0{
+      width: 132px;
+      height: 33.09px;
+      left: 0px;
+      top: 15.76px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .startScore{
+      width: 147.15px;
+      height: 46px;
+      left: 119.06px;
+      top: 18px;
+      color: #666666;
+      font-size: 42px;
+      text-align: right;
+      vertical-align: bottom;
+      position: absolute;
+    }
+    .helpScore{
+      width: 147.15px;
+      height: 46px;
+      left: 119.06px;
+      top: 64px;
+      color: #666666;
+      font-size: 42px;
+      text-align: right;
+      vertical-align: bottom;
+      position: absolute;
+    }
+    .lastScore{
+      width: 147.15px;
+      height: 46px;
+      left: 119.06px;
+      top: 108px;
+      color: #666666;
+      font-size: 42px;
+      text-align: right;
+      vertical-align: bottom;
+      position: absolute;
+    }
+    .dom0_3_4{
+      width: 132px;
+      height: 33.09px;
+      left: 0px;
+      top: 60.72px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .dom0_3_5{
+      width: 132px;
+      height: 33.09px;
+      left: 0px;
+      top: 105.99px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 33.09px;
+      position: absolute;
+    }
+    .dom0_3{
+      width: 267px;
+      height: 140px;
+      left: 267.04px;
+      top: 362.62px;
+      position: absolute;
+    }
+    .dom0_4{
+      width: 2px;
+      height: 124px;
+      left: 221.31px;
+      top: 379.44px;
+      background-color: #e8e8e8;
+      position: absolute;
+    }
+    .goBtn{
+      width: 180px;
+      height: 51px;
+      left: 215.22px;
+      top: 647.14px;
+      background: url("../assets/web/chuangguan.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .helpBtn{
+      width: 392px;
+      height: 103px;
+      left: 109px;
+      top: 541.1px;
+      background: url("../assets/web/jieli.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom0{
+      width: 610px;
+      height: 740px;
+      left: 69.19px;
+      top: 180.31px;
+      position: absolute;
+    }
+}
+
+.LoadingSkin{
+    .dom0{
+      width: 585px;
+      height: 132px;
+      left: 82.5px;
+      top: 198px;
+      background: url("../assets/web/title.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom1{
+      width: 657px;
+      height: 54px;
+      left: 46.5px;
+      top: 1068px;
+      color: #ffffff;
+      font-size: 32px;
+      text-align: center;
+      line-height: 49.28px;
+      position: absolute;
+    }
+    .dom2_0{
+      width: 420px;
+      height: 24px;
+      left: 0px;
+      top: 0px;
+      background-color: #ffffff;
+      border-radius: 32px;
+      position: absolute;
+    }
+    .progress{
+      width: 0;
+      height: 18px;
+      left: 4px;
+      top: 3px;
+      background-color: #165384;
+      border-radius: 16px;
+      position: absolute;
+      animation: loading 1200ms;
+      animation-fill-mode: forwards;
+    }
+    @keyframes loading{
+      0%{width: 0}
+      100%{width: 412px}
+    }
+    .dom2{
+      width: 420px;
+      height: 24px;
+      left: 177px;
+      top: 384px;
+      position: absolute;
+    }
+    .dom3{
+      width: 283px;
+      height: 38px;
+      left: 241.5px;
+      top: 430px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+}
+
+.LostSkin{
+    .bufuBtn{
+      width: 392px;
+      height: 103px;
+      left: 177px;
+      top: 964px;
+      background: url("../assets/web/bufu.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .fangBtn{
+      width: 180px;
+      height: 51px;
+      left: 283px;
+      top: 1078px;
+      background: url("../assets/web/fangta.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom2_0{
+      width: 546px;
+      height: 184px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/chengji.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .worldNum{
+      width: 177.67px;
+      height: 44px;
+      left: 285px;
+      top: 13.65px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .winNum{
+      width: 177.67px;
+      height: 44px;
+      left: 285px;
+      top: 69px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .bestNum{
+      width: 177.67px;
+      height: 44px;
+      left: 285px;
+      top: 124.64px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .dom2{
+      width: 546px;
+      height: 184px;
+      left: 101px;
+      top: 721px;
+      position: absolute;
+    }
+    .dom3_0{
+      width: 437px;
+      height: 174px;
+      left: 0px;
+      top: 48.5px;
+      background: url("../assets/web/yingbox.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .taName{
+      width: 177.67px;
+      height: 44px;
+      left: 188px;
+      top: 93.81px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .taScore{
+      width: 175px;
+      height: 49.33px;
+      left: 188px;
+      top: 139.81px;
+      color: #ffffff;
+      font-size: 42px;
+      text-align: left;
+      line-height: 49.33px;
+      position: absolute;
+    }
+    .dom3_3{
+      width: 90px;
+      height: 81px;
+      left: 156.03px;
+      top: 0px;
+      background: url("../assets/web/xiaolian.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .taHeader{
+      width: 100px;
+      height: 100px;
+      left: 71px;
+      top: 87.34px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      border-radius: 100px;
+      position: absolute;
+    }
+    .dom3{
+      width: 437px;
+      height: 223px;
+      left: -27.51px;
+      top: 422.06px;
+      position: absolute;
+    }
+    .dom4_0{
+      width: 391px;
+      height: 174px;
+      left: 0px;
+      top: 31.88px;
+      background: url("../assets/web/shubox.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .myName{
+      width: 177.67px;
+      height: 44px;
+      left: 9.65px;
+      top: 73.03px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: right;
+      line-height: 44px;
+      position: absolute;
+    }
+    .myScore{
+      width: 175px;
+      height: 49.33px;
+      left: 12.65px;
+      top: 119.03px;
+      color: #ffffff;
+      font-size: 42px;
+      text-align: right;
+      line-height: 49.33px;
+      position: absolute;
+    }
+    .dom4_3{
+      width: 76px;
+      height: 69px;
+      left: 166.82px;
+      top: 0px;
+      background: url("../assets/web/kulian.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .myHeader{
+      width: 120px;
+      height: 120px;
+      left: 220.08px;
+      top: 56.34px;
+      background-size: cover;
+      background-position: center;
+      background-color: #000000;
+      border-radius: 120px;
+      position: absolute;
+    }
+    .dom4{
+      width: 391px;
+      height: 206px;
+      left: 374.98px;
+      top: 448.91px;
+      position: absolute;
+    }
+    .dom5{
+      width: 465px;
+      height: 289px;
+      left: 155.15px;
+      top: 113.61px;
+      background: url("../assets/web/shibai.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+}
+
+.PkListSkin{
+    .dom0_0{
+      width: 550px;
+      height: 362px;
+      left: 0px;
+      top: 207.88px;
+      background-color: #ffffff;
+      border-radius: 40px;
+      position: absolute;
+    }
+    .pkBtn{
+      width: 392px;
+      height: 103px;
+      left: 79.5px;
+      top: 463.84px;
+      background: url("../assets/web/pkhaoyou.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom0_2_0{
+      width: 549px;
+      height: 332px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/logo.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .tip{
+      width: 425.39px;
+      height: 42.13px;
+      left: 62.9px;
+      top: 257.98px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: center;
+      line-height: 42.13px;
+      position: absolute;
+    }
+    .dom0_2{
+      width: 549px;
+      height: 332px;
+      left: 1px;
+      top: 0px;
+      position: absolute;
+      transform: scale(0.8);
+    }
+    .taHeader{
+      width: 90px;
+      height: 90px;
+      left: 112.17px;
+      top: 345.48px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .taName{
+      width: 181.52px;
+      height: 36.12px;
+      left: 222.02px;
+      top: 333.98px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 36.12px;
+      position: absolute;
+    }
+    .taScore{
+      width: 273.03px;
+      left: 222.02px;
+      top: 370px;
+      color: #586776;
+      font-size: 100px;
+      text-align: left;
+      position: absolute;
+    }
+    .dom0{
+      width: 550px;
+      height: 570px;
+      left: 97.98px;
+      top: 11.9px;
+      position: absolute;
+    }
+    .dom1_0{
+      width: 660px;
+      height: 512px;
+      left: 0px;
+      top: 0px;
+      background-color: #494b51;
+      border-radius: 8px;
+      position: absolute;
+    }
+    .friendList{
+      width: 660px;
+      height: 428px;
+      left: 0px;
+      top: 82.39px;
+      border-radius: 8px;
+      position: absolute;
+      overflow: auto;
+    }
+    .dom1_2{
+      width: 159.39px;
+      height: 42.12px;
+      left: 22.06px;
+      top: 18.78px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .dom1_3{
+      width: 133.63px;
+      height: 42.12px;
+      left: 360.73px;
+      top: 18.78px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .dom1_4{
+      width: 138.18px;
+      height: 42.12px;
+      left: 508.44px;
+      top: 18.78px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .dom1{
+      width: 660px;
+      height: 512px;
+      left: 44.96px;
+      top: 608.57px;
+      position: absolute;
+    }
+    .selfBtn{
+      width: 283.94px;
+      height: 40.61px;
+      left: 236.03px;
+      top: 1139.48px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: center;
+      line-height: 40.61px;
+      position: absolute;
+    }
+}
+
+.PkNoneSkin{
+    .dom0_0{
+      width: 610px;
+      height: 524px;
+      left: 0px;
+      top: 207.88px;
+      background-color: #ffffff;
+      border-radius: 40px;
+      position: absolute;
+    }
+    .pkBtn{
+      width: 392px;
+      height: 103px;
+      left: 109.5px;
+      top: 525.84px;
+      background: url("../assets/web/pkhaoyou.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom0_2_0{
+      width: 549px;
+      height: 332px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/logo.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .tip{
+      width: 425.39px;
+      height: 42.13px;
+      left: 62.9px;
+      top: 257.98px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: center;
+      line-height: 42.13px;
+      position: absolute;
+    }
+    .dom0_2{
+      width: 549px;
+      height: 332px;
+      left: 31px;
+      top: 0px;
+      position: absolute;
+    }
+    .taHeader{
+      width: 90px;
+      height: 90px;
+      left: 142.17px;
+      top: 379.48px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .taName{
+      width: 181.52px;
+      height: 36.12px;
+      left: 252.02px;
+      top: 367.98px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 36.12px;
+      position: absolute;
+    }
+    .taScore{
+      width: 273.03px;
+      left: 252.02px;
+      top: 400px;
+      color: #586776;
+      font-size: 100px;
+      text-align: left;
+      position: absolute;
+    }
+    .selfBtn{
+      width: 180px;
+      height: 51px;
+      left: 217.02px;
+      top: 638.84px;
+      background: url("../assets/web/chuangguan.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom0{
+      width: 610px;
+      height: 732px;
+      left: 69.98px;
+      top: 213.88px;
+      position: absolute;
+    }
+}
+
+.ResultSkin{
+    .dom0{
+      width: 166px;
+      height: 23px;
+      left: 295px;
+      top: 120px;
+      background: url("../assets/web/defen.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom1{
+      width: 196px;
+      height: 39.16px;
+      left: 277px;
+      top: 1079.63px;
+      color: #ffffff;
+      font-size: 32px;
+      text-align: center;
+      line-height: 39.16px;
+      position: absolute;
+    }
+    .dom2{
+      width: 445.22px;
+      height: 180px;
+      left: 152.39px;
+      top: 172.94px;
+      color: #ffffff;
+      font-size: 200px;
+      text-align: center;
+      line-height: 166.36px;
+      position: absolute;
+    }
+    .dom3{
+      width: 750px;
+      height: 100px;
+      left: 0;
+      top: 380.09px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .num{
+        font-size: 50px;
+      }
+    }
+    .tip{
+      margin: auto;
+      display: inline-block;
+      font-size: 32px;
+      text-align: center;
+      padding: 24px 48px;
+      border-radius: 8px;
+      background: #494B51;
+      color: #ffffff;
+    }
+    .img{
+      width: 50px;
+      height: 50px;
+      vertical-align: middle;
+      margin: 0 16px;
+    }
+    .dom4{
+      width: 484px;
+      height: 125px;
+      left: 133px;
+      top: 937.98px;
+      background: url("../assets/web/shiyong.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .small{
+      font-size: 30px;
+    }
+}
+
+.ReviveSkin{
+    width: 620px;
+    height: 500px;
+    position: relative;
+    &.none .dom1{
+      background-image: url("../assets/web/nofuhuo.png");
+    }
+    .dom0{
+      width: 620px;
+      height: 500px;
+      left: 0px;
+      top: 0px;
+      background-color: #494b51;
+      border-radius: 8px;
+      position: absolute;
+    }
+    .dom1{
+      width: 240px;
+      height: 90px;
+      left: 29px;
+      top: 374px;
+      background: url("../assets/web/fuhuo.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom2{
+      width: 300px;
+      height: 90px;
+      left: 293px;
+      top: 374px;
+      background: url("../assets/web/yaoqingqunfa.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom3_0{
+      width: 50px;
+      height: 53px;
+      left: 168px;
+      top: 0px;
+      background: url("../assets/web/fuhuobi.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom3_1{
+      width: 185px;
+      height: 37px;
+      left: 0px;
+      top: 8px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 37px;
+      position: absolute;
+    }
+    .dom3_2{
+      width: 207px;
+      height: 37px;
+      left: 238.5px;
+      top: 8px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 37px;
+      position: absolute;
+    }
+    .dom3{
+      width: 446px;
+      height: 53px;
+      left: 102px;
+      top: 143px;
+      position: absolute;
+    }
+    .dom4_0{
+      width: 102px;
+      height: 31px;
+      left: 0px;
+      top: 0px;
+      color: #c6c6c6;
+      font-size: 24px;
+      text-align: left;
+      line-height: 31px;
+      position: absolute;
+    }
+    .dom4_1{
+      width: 310px;
+      height: 110px;
+      left: 96px;
+      top: 0px;
+      color: #c6c6c6;
+      font-size: 24px;
+      text-align: left;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .dom4{
+      width: 406px;
+      height: 110px;
+      left: 105px;
+      top: 220px;
+      position: absolute;
+    }
+    .dom5{
+      width: 620px;
+      height: 90px;
+      left: 0px;
+      top: 0px;
+      background-color: #ffffff;
+      position: absolute;
+    }
+    .dom6{
+      width: 208px;
+      height: 60px;
+      left: 204px;
+      top: 16px;
+      color: #333333;
+      font-size: 48px;
+      text-align: center;
+      line-height: 60px;
+      position: absolute;
+    }
+    .close{
+      width: 48px;
+      height: 48px;
+      left: 550px;
+      top: 20px;
+      background: url("../assets/web/close-btn.png") no-repeat center;
+      background-size: 24px 24px;
+      position: absolute;
+    }
+}
+
+.ScoreSkin{
+    .dom0{
+      width: 180px;
+      height: 51px;
+      left: 160px;
+      top: 1008.51px;
+      background: url("../assets/web/back-home.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+      font-size: 0;
+    }
+    .dom1_0{
+      width: 630px;
+      height: 450px;
+      left: 0px;
+      top: 197.3px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      position: absolute;
+    }
+    .taHeader{
+      width: 90px;
+      height: 90px;
+      left: 0px;
+      top: 11.5px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .taName{
+      width: 181.52px;
+      height: 36.12px;
+      left: 109.85px;
+      top: 0px;
+      color: #666666;
+      font-size: 24px;
+      text-align: left;
+      line-height: 36.12px;
+      position: absolute;
+    }
+    .taScore{
+      width: 273.03px;
+      height: 100px;
+      left: 109.85px;
+      top: 45px;
+      color: #586776;
+      font-size: 100px;
+      text-align: left;
+      position: absolute;
+    }
+    .dom1_1_3{
+      width: 112px;
+      height: 82px;
+      left: 200.61px;
+      top: -17.94px;
+      background: url("../assets/web/xinjilu.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+      animation: scaleIn 100ms;
+      animation-fill-mode: forwards;
+    }
+    @keyframes scaleIn{
+      0%{opacity: 0; transform: scale(3);}
+      90%{opacity: 1; transform: scale(0.9);}
+      100%{opacity: 1; transform: scale(1);}
+    }
+    .dom1_1{
+      width: 383px;
+      height: 112px;
+      left: 164.29px;
+      top: 281.13px;
+      position: absolute;
+    }
+    .dom1_2_0{
+      width: 549px;
+      height: 252px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/header.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom1_2_1{
+      width: 442.27px;
+      height: 46.18px;
+      left: 55.76px;
+      top: 178.74px;
+      color: #ffffff;
+      font-size: 28px;
+      text-align: center;
+      line-height: 43.120000000000005px;
+      position: absolute;
+    }
+    .dom1_2{
+      width: 549px;
+      height: 252px;
+      left: 40.5px;
+      top: 0px;
+      position: absolute;
+    }
+    .taScore0{
+      width: 200px;
+      height: 54px;
+      left: 0px;
+      top: 0px;
+      color: #586776;
+      font-size: 54px;
+      text-align: center;
+      line-height: 54px;
+      position: absolute;
+    }
+    .taScore1{
+      width: 200px;
+      height: 39.16px;
+      left: 0px;
+      top: 69px;
+      color: #717171;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .taScore2{
+      width: 200px;
+      height: 54px;
+      left: 273.91px;
+      top: 0px;
+      color: #586776;
+      font-size: 54px;
+      text-align: center;
+      line-height: 54px;
+      position: absolute;
+    }
+    .taScore3{
+      width: 200px;
+      height: 39.16px;
+      left: 273.91px;
+      top: 69px;
+      color: #717171;
+      font-size: 24px;
+      text-align: center;
+      line-height: 36.96px;
+      position: absolute;
+    }
+    .dom1_3_4{
+      width: 2px;
+      height: 84px;
+      left: 239.91px;
+      top: 9px;
+      background-color: #e8e8e8;
+      position: absolute;
+    }
+    .dom1_3{
+      width: 474px;
+      height: 109px;
+      left: 75.09px;
+      top: 471.03px;
+      position: absolute;
+    }
+    .dom1{
+      width: 630px;
+      height: 648px;
+      left: 60px;
+      top: 114.97px;
+      position: absolute;
+    }
+    .dom2{
+      width: 310px;
+      height: 90px;
+      left: 45.54px;
+      top: 867.85px;
+      background: url("../assets/web/yaoqingjieli.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom3{
+      width: 310px;
+      height: 90px;
+      left: 396.25px;
+      top: 867.85px;
+      background: url("../assets/web/yaoqingtiaozhan.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom4_0{
+      width: 485px;
+      height: 65px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/qipao.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom4_1{
+      width: 455.73px;
+      height: 45px;
+      left: 13.84px;
+      top: 3.04px;
+      color: #3b1918;
+      font-size: 20px;
+      text-align: center;
+      line-height: 45px;
+      position: absolute;
+      .max{
+        font-size: 28px;
+        color: #b34418;
+      }
+    }
+    .dom4{
+      width: 485px;
+      height: 65px;
+      top: 784.94px;
+      position: absolute;
+      &.help{
+        right: 224.29px;
+      }
+      &.pk{
+        left: 224.29px;
+      }
+    }
+    .dom5{
+      width: 180px;
+      height: 51px;
+      right: 160px;
+      top: 1008.51px;
+      background: url("../assets/web/again.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+}
+#ShareSkin{
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 12;
+}
+.ShareSkin{
+    .dom0_0{
+      width: 582px;
+      height: 501px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/share_guide.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom0_1{
+      width: 486px;
+      height: 62px;
+      left: 31px;
+      top: 234.5px;
+      color: #fefb6b;
+      font-size: 30px;
+      text-align: center;
+      line-height: 46.2px;
+      position: absolute;
+    }
+    .dom0_2{
+      width: 428px;
+      height: 60px;
+      left: 59px;
+      top: 294.5px;
+      color: #cf6c4c;
+      font-size: 50px;
+      text-align: center;
+      line-height: 60px;
+      position: absolute;
+    }
+    .knowBtn{
+      width: 266px;
+      height: 87px;
+      left: 132.5px;
+      top: 413px;
+      background-color: rgba(0,0,0,0);
+      position: absolute;
+    }
+    .dom0{
+      width: 582px;
+      height: 501px;
+      left: 94px;
+      top: 29.5px;
+      position: absolute;
+    }
+}
+
+.StartSkin{
+    .dom0{
+      width: 585px;
+      height: 132px;
+      left: 82.5px;
+      top: 50px;
+      background: url("../assets/web/title.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom1_0{
+      width: 660px;
+      height: 620px;
+      left: 0px;
+      top: 0px;
+      background-color: #282828;
+      border-radius: 4px;
+      position: absolute;
+    }
+    .worldList{
+      width: 660px;
+      height: 540px;
+      left: 0px;
+      top: 78.5px;
+      border-radius: 4px;
+      position: absolute;
+      overflow: auto;
+    }
+    .dom1_2{
+      width: 118px;
+      height: 32px;
+      left: 32px;
+      top: 24px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 32px;
+      position: absolute;
+    }
+    .dom1_3{
+      width: 118px;
+      height: 32px;
+      left: 507.5px;
+      top: 24px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      line-height: 32px;
+      position: absolute;
+    }
+    .dom1{
+      width: 660px;
+      height: 620px;
+      left: 42px;
+      top: 411px;
+      position: absolute;
+    }
+    .dom2_0{
+      width: 660px;
+      height: 178px;
+      left: 0px;
+      top: 0px;
+      background-color: #282828;
+      border-radius: 4px;
+      position: absolute;
+    }
+    .dom2_1_0{
+      width: 630px;
+      height: 36px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/line.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .sendTip{
+      width: 321px;
+      height: 32px;
+      left: 194px;
+      top: 2px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: left;
+      line-height: 32px;
+      position: absolute;
+    }
+    .dom2_1{
+      width: 630px;
+      height: 36px;
+      left: 16px;
+      top: 20px;
+      position: absolute;
+    }
+    .dom2_2_0{
+      width: 70px;
+      height: 70px;
+      left: 0px;
+      top: 1px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .myName{
+      width: 219px;
+      height: 32px;
+      left: 95px;
+      top: 0px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: left;
+      line-height: 32px;
+      position: absolute;
+    }
+    .myRank{
+      width: 219px;
+      height: 32px;
+      left: 95px;
+      top: 42px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: left;
+      line-height: 32px;
+      position: absolute;
+    }
+    .myBest{
+      width: 243px;
+      height: 32px;
+      left: 365.5px;
+      top: 42px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: right;
+      line-height: 32px;
+      position: absolute;
+    }
+    .dom2_2{
+      width: 609px;
+      height: 74px;
+      left: 28px;
+      top: 80px;
+      position: absolute;
+    }
+    .dom2{
+      width: 660px;
+      height: 178px;
+      left: 42px;
+      top: 213px;
+      position: absolute;
+    }
+    .startBtn{
+      width: 394px;
+      height: 125px;
+      left: 175px;
+      top: 1054px;
+      background: url("../assets/web/tiaozhan.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+}
+
+.SuccessSkin{
+    .dom0{
+      width: 676px;
+      height: 428px;
+      left: 37px;
+      top: 124.68px;
+      background: url("../assets/web/chenggong.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .xuanBtn{
+      width: 392px;
+      height: 103px;
+      left: 177px;
+      top: 964px;
+      background: url("../assets/web/xuanyao.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .chuangBtn{
+      width: 180px;
+      height: 51px;
+      left: 283px;
+      top: 1078px;
+      background: url("../assets/web/chuangguan.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom3_0{
+      width: 546px;
+      height: 184px;
+      left: 0px;
+      top: 0px;
+      background: url("../assets/web/chengji.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .worldNum{
+      width: 177.67px;
+      height: 44px;
+      left: 285px;
+      top: 13.65px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .winNum{
+      width: 177.67px;
+      height: 44px;
+      left: 285px;
+      top: 69px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .bestNum{
+      width: 177.67px;
+      height: 44px;
+      left: 285px;
+      top: 124.64px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .dom3{
+      width: 546px;
+      height: 184px;
+      left: 101px;
+      top: 721px;
+      position: absolute;
+    }
+    .dom4_0{
+      width: 406px;
+      height: 174px;
+      left: 0px;
+      top: 21.68px;
+      background: url("../assets/web/shubox2.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .taHeader{
+      width: 100px;
+      height: 100px;
+      left: 75.34px;
+      top: 62.67px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      border-radius: 100px;
+      position: absolute;
+    }
+    .dom4_2{
+      width: 76px;
+      height: 69px;
+      transform: scale(-1, 1);
+      transform-origin: 0px 0px;
+      left: 222px;
+      top: 0px;
+      background: url("../assets/web/kulian.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .taName{
+      width: 177.67px;
+      height: 44px;
+      left: 196px;
+      top: 71.33px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: left;
+      line-height: 44px;
+      position: absolute;
+    }
+    .taScore{
+      width: 175px;
+      height: 49.33px;
+      left: 196px;
+      top: 117.33px;
+      color: #ffffff;
+      font-size: 42px;
+      text-align: left;
+      line-height: 49.33px;
+      position: absolute;
+    }
+    .dom4{
+      width: 406px;
+      height: 196px;
+      left: -34px;
+      top: 473.32px;
+      position: absolute;
+    }
+    .dom5_0{
+      width: 445px;
+      height: 174px;
+      left: 0px;
+      top: 47.61px;
+      background: url("../assets/web/yingbox2.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .dom5_1{
+      width: 90px;
+      height: 81px;
+      transform: scale(-1, 1);
+      transform-origin: 0px 0px;
+      left: 244.66px;
+      top: 0px;
+      background: url("../assets/web/xiaolian.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .myHeader{
+      width: 120px;
+      height: 120px;
+      left: 248.99px;
+      top: 70.67px;
+      background-color: #000000;
+      background-size: cover;
+      background-position: center;
+      border-radius: 120px;
+      position: absolute;
+    }
+    .myName{
+      width: 177.67px;
+      height: 44px;
+      left: 40.65px;
+      top: 89.28px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: right;
+      line-height: 44px;
+      position: absolute;
+    }
+    .myScore{
+      width: 175px;
+      height: 49.33px;
+      left: 43.65px;
+      top: 135.28px;
+      color: #ffffff;
+      font-size: 42px;
+      text-align: right;
+      line-height: 49.33px;
+      position: absolute;
+    }
+    .dom5{
+      width: 445px;
+      height: 222px;
+      left: 344px;
+      top: 432.66px;
+      position: absolute;
+    }
+}
+
+.WorldItemSkin{
+    width: 660px;
+    height: 118px;
+    position: relative;
+    &:nth-child(2n+1){
+      background: rgba(255, 255, 255, 0.05);
+    }
+    &:nth-child(1) .rankNum{
+      background: url("../assets/web/coin1.png") no-repeat center;
+      background-size: contain;
+      font-size: 0;
+    }
+    &:nth-child(2) .rankNum{
+      background: url("../assets/web/coin2.png") no-repeat center;
+      background-size: contain;
+      font-size: 0;
+    }
+    &:nth-child(3) .rankNum{
+      background: url("../assets/web/coin3.png") no-repeat center;
+      background-size: contain;
+      font-size: 0;
+    }
+    &.none{
+      .name{
+        top: 48px;
+      }
+      .icon, .coin{
+        display: none;
+      }
+    }
+    .rankNum{
+      width: 56px;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      font-size: 32px;
+      color: #ffffff;
+      left: 29px;
+      top: 35px;
+      position: absolute;
+    }
+    .icon{
+      width: 32px;
+      height: 33px;
+      left: 201px;
+      top: 59.5px;
+      background: url("../assets/web/jinbi.png") no-repeat center;
+      background-size: contain;
+      position: absolute;
+    }
+    .header{
+      width: 70px;
+      height: 70px;
+      left: 106px;
+      top: 23.5px;
+      background: url("") no-repeat center;
+      background-size: cover;
+      background-color: #000000;
+      position: absolute;
+    }
+    .score{
+      width: 151px;
+      height: 30px;
+      left: 481px;
+      top: 42.5px;
+      color: #ffffff;
+      font-size: 30px;
+      text-align: right;
+      line-height: 30px;
+      position: absolute;
+    }
+    .name{
+      width: 216px;
+      height: 24px;
+      left: 204px;
+      top: 24px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: left;
+      line-height: 24px;
+      position: absolute;
+    }
+    .coin{
+      width: 216px;
+      height: 28px;
+      left: 242px;
+      top: 63px;
+      color: #ffffff;
+      font-size: 28px;
+      text-align: left;
+      line-height: 28px;
+      position: absolute;
+    }
+}
+#InfoSkin{
+  background: rgba(0,0,0,0);
+  pointer-events: none;
+  z-index: 8;
+  display: none;
+}
+.InfoSkin{
+  .userScore{
+    width: 249.76px;
+    height: 90px;
+    left: 42.39px;
+    top: 180px;
+    color: #000000;
+    font-size: 90px;
+    text-align: left;
+    line-height: 90px;
+    position: absolute;
+  }
+  .leader{
+    width: 409px;
+    height: 180px;
+    left: 170.5px;
+    top: 160.32px;
+    background: url("../assets/web/leader.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+    display: none;
+  }
+  .scoreFrame{
+    width: 264px;
+    height: 264px;
+    left: 0px;
+    top: 0px;
+    background: url("../assets/web/jige.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+    animation: rotate 6000ms infinite linear;
+  }
+  @keyframes rotate{
+    0%{transform: rotate(0)}
+    100%{transform: rotate(360deg)}
+  }
+  .scoreBg{
+    width: 233px;
+    height: 232px;
+    left: 0px;
+    top: 0px;
+    background: url("../assets/web/jige-k.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+  }
+  .scoreTip{
+    width: 94.85px;
+    height: 43.64px;
+    left: 66.56px;
+    top: 76.26px;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    line-height: 43.64px;
+    position: absolute;
+  }
+  .scoreNum{
+    width: 90.79px;
+    height: 80px;
+    left: 69.57px;
+    top: 96px;
+    color: #ffffff;
+    font-size: 60px;
+    text-align: center;
+    line-height: 80px;
+    position: absolute;
+  }
+  .dom2_1{
+    width: 233px;
+    height: 232px;
+    left: 15.5px;
+    top: 16px;
+    position: absolute;
+  }
+  .scoreBox{
+    width: 264px;
+    height: 264px;
+    left: 243px;
+    top: 114px;
+    position: absolute;
+    animation: turnOn 300ms;
+    animation-fill-mode: forwards;
+    &.youxiu{
+      .scoreBg{
+        background-image: url(../assets/web/youxiu.png);
+      }
+      .scoreFrame{
+        background-image: url(../assets/web/youxiu-k.png);
+      }
+    }
+    &.yiban{
+      .scoreBg{
+        background-image: url(../assets/web/yiban.png);
+      }
+      .scoreFrame{
+        width: 200px;
+        height: 200px;
+        left: 27px;
+        top: 27px;
+        background-image: url(../assets/web/yiban-k.png);
+      }
+    }
+    &.wanmei{
+      .scoreBg{
+        background-image: url(../assets/web/wanmei.png);
+      }
+      .scoreFrame{
+        background-image: url(../assets/web/wanmei-k.png);
+      }
+    }
+    &.jige{
+      .scoreBg{
+        background-image: url(../assets/web/jige.png);
+      }
+      .scoreFrame{
+        width: 200px;
+        height: 200px;
+        left: 27px;
+        top: 27px;
+        background-image: url(../assets/web/jige-k.png);
+      }
+    }
+  }
+  @keyframes turnOn{
+    0%{opacity: 0;transform:scale(0.1)}
+    100%{opacity: 1;transform:scale(1)}
+  }
+}
+
+.HelpItemSkin{
+  width: 660px;
+  height: 118px;
+  position: relative;
+  &:nth-child(2n+1){
+    background: rgba(255, 255, 255, 0.05);
+  }
+  &:nth-child(1) .rankNum{
+    background: url("../assets/web/coin1.png") no-repeat center;
+    background-size: contain;
+    font-size: 0;
+  }
+  &:nth-child(2) .rankNum{
+    background: url("../assets/web/coin2.png") no-repeat center;
+    background-size: contain;
+    font-size: 0;
+  }
+  &:nth-child(3) .rankNum{
+    background: url("../assets/web/coin3.png") no-repeat center;
+    background-size: contain;
+    font-size: 0;
+  }
+  .rankNum{
+    width: 56px;
+    height: 45px;
+    left: 29px;
+    top: 35px;
+    font-size: 32px;
+    color: #ffffff;
+    position: absolute;
+    text-align: center;
+  }
+  .header{
+    width: 70px;
+    height: 70px;
+    left: 106px;
+    top: 23.5px;
+    background: url("") no-repeat center;
+    background-size: cover;
+    background-color: #000000;
+    position: absolute;
+  }
+  .score{
+    width: 151px;
+    height: 30px;
+    left: 477px;
+    top: 43px;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: right;
+    line-height: 30px;
+    position: absolute;
+  }
+  .name{
+    width: 158px;
+    height: 24px;
+    left: 203px;
+    top: 46px;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: left;
+    line-height: 24px;
+    position: absolute;
+  }
+}
+
+.fromLeft{
+  animation: fromLeft 120ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+.fromRight{
+  animation: fromRight 120ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fromLeft{
+  0%{opacity: 0;transform: translateX(-240px)}
+  100%{opacity: 1;transform: translateX(0)}
+}
+
+@keyframes fromRight{
+  0%{opacity: 0;transform: translateX(240px)}
+  100%{opacity: 1;transform: translateX(0)}
+}
+
+@keyframes scaleOut{
+  0%{opacity: 0; transform: scale(0);}
+  93%{opacity: 1; transform: scale(1.08);}
+  100%{opacity: 1; transform: scale(1);}
+}
+
+#RecordSkin{
+  background: rgba(0, 0, 0, 0);
+  z-index: 18;
+  pointer-events: none;
+}
+
+.RecordSkin{
+  width: 750px;
+  height: 254px;
+  position: relative;
+  animation: scaleOut 300ms;
+  animation-fill-mode: forwards;
+  .dom0{
+    width: 222px;
+    height: 112px;
+    left: 264px;
+    top: 6px;
+    background: url("../assets/web/new-record.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+    z-index: 3;
+  }
+  .dom2{
+    width: 80px;
+    height: 92px;
+    left: 192px;
+    top: 126.61px;
+    background: url("../assets/web/0001.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+  }
+  .dom3{
+    width: 80px;
+    height: 92px;
+    left: 480px;
+    top: 124px;
+    background: url("../assets/web/0002.png") no-repeat center;
+    background-size: contain;
+    position: absolute;
+  }
+  .baoza1{
+    width: 670px;
+    height: 670px;
+    background: url("../assets/web/baoza1.png");
+    background-size: 670px 5360px;
+    position: absolute;
+    left: 40px;
+    top: -240px;
+    animation: baoza1 500ms steps(8);
+    animation-fill-mode: forwards;
+  }
+  .baoza2{
+    width: 150px;
+    height: 150px;
+    background: url("../assets/web/baoza2.png");
+    background-size: 150px 900px;
+    position: absolute;
+    left: 300px;
+    top: 20px;
+    animation: baoza2 600ms steps(6);
+    animation-fill-mode: forwards;
+  }
+  .star{
+    background: url("../assets/web/xingxing.png") no-repeat center;
+    background-size: 80px 2392px;
+    animation: star 1800ms steps(26) infinite;
+  }
+}
+
+@keyframes baoza1{
+  100%{background-position-y: -5360px;opacity: 0;}
+}
+
+@keyframes baoza2{
+  100%{background-position-y: -900px;opacity: 0;}
+}
+
+@keyframes star{
+  100%{background-position-y: -2392px;}
+}
+
+.debug{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 20;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  transition: all 200ms;
+  overflow-y: auto;
+  display: none;
+  .tip{
+    padding: 9px;
+    border-bottom: solid 1px #e4e4e4;
+  }
+  &.show{
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.FontSkin{
+  width: 360px;
+  height: 122px;
+  left: 190px;
+  top: 125px;
+  position: relative;
+  text-align: center;
+  transform: scale(1.2);
+  font-size: 0;
+  z-index: 3;
+  .num{
+    display: inline-block;
+    margin: 4px -4px;
+  }
+  .num0{
+    width: 54.97px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -848.67px 0px;
+  }
+  .num1{
+    width: 43.76px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -22.24px 0px;
+  }
+  .num2{
+    width: 56.97px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -110.37px 0px;
+  }
+  .num3{
+    width: 53.46px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -202.06px 0px;
+  }
+  .num4{
+    width: 56.49px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -294.56px 0px;
+  }
+  .num5{
+    width: 57.09px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -384.88px 0px;
+  }
+  .num6{
+    width: 56.37px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -478.53px 0px;
+  }
+  .num7{
+    width: 56px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -570.47px 0px;
+  }
+  .num8{
+    width: 58.67px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -660.94px 0px;
+  }
+  .num9{
+    width: 56.66px;
+    height: 90px;
+    background: url("../assets/web/a-num.png") no-repeat center;
+    background-size: 920px 92px;
+    background-position: -752.66px 0px;
+  }
+}
