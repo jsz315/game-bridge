@@ -58,6 +58,7 @@ export default class Revive{
 
     show(){
         //window.MtaH5.clickStat("revivepage_expose");
+        // alert("old revive");
         GAME.tool.hpGet("/youtui/bridge/checkCoin", {
             gameId: CFG.gameId,
             checkPointType: 1,

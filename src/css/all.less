@@ -1,6 +1,7 @@
 html,body{
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 body::after{
   display: block;
@@ -12,6 +13,23 @@ body::after{
   height: 100%;
   background: url("../assets/web/long-bg2.png") repeat-x;
   background-size: 100% 100%;
+}
+
+.modal{
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spop{
+  background: #fff;
+  padding: 20px;
 }
 
 #recordCanvas{
@@ -44,23 +62,18 @@ body::after{
       position: fixed;
       width: 100%;
       height: 100%;
-      opacity: 0;
       z-index: 3;
       .controll{
-        display: none;
         position: absolute;
-        font-size: 20px;
-        right: 0;
+        right: 20px;
         top: 30px;
-        width: 120px;
+        width: 60px;
         height: 60px;
         line-height: 60px;
-        text-align: center;
-        color: #494b51;
-        background: #e4e4e4;
+        background: url("../assets//web/camera-close.png") no-repeat center;
+        background-size: contain;
         &.auto{
-          color: #ffb68c;
-          background: #b44403;
+          background-image: url("../assets//web//camera-open.png");
         }
       }
   }
@@ -70,7 +83,7 @@ body::after{
       touch-action: none;
   }
   .num{
-      font-family: "Chainreact Block Boxter";
+      // font-family: "Chainreact Block Boxter";
   }
   .red{
       color: red;
@@ -179,7 +192,8 @@ body::after{
       height: 70px;
       left: 106px;
       top: 23.5px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -314,7 +328,8 @@ body::after{
       height: 90px;
       left: 16px;
       top: 0px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -536,7 +551,8 @@ body::after{
       height: 90px;
       left: 16px;
       top: 0px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -822,13 +838,13 @@ body::after{
     }
     .taScore{
       width: 175px;
-      height: 49.33px;
+      height: 50px;
+      line-height: 50px;
       left: 188px;
-      top: 139.81px;
+      top: 100px;
       color: #ffffff;
       font-size: 42px;
       text-align: left;
-      line-height: 49.33px;
       position: absolute;
     }
     .dom3_3{
@@ -845,7 +861,8 @@ body::after{
       height: 100px;
       left: 71px;
       top: 87.34px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       border-radius: 100px;
@@ -979,7 +996,8 @@ body::after{
       height: 90px;
       left: 112.17px;
       top: 345.48px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -1133,7 +1151,8 @@ body::after{
       height: 90px;
       left: 142.17px;
       top: 379.48px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -1383,16 +1402,6 @@ body::after{
 }
 
 .ScoreSkin{
-    .dom0{
-      width: 180px;
-      height: 51px;
-      left: 160px;
-      top: 1008.51px;
-      background: url("../assets/web/back-home.png") no-repeat center;
-      background-size: contain;
-      position: absolute;
-      font-size: 0;
-    }
     .dom1_0{
       width: 630px;
       height: 450px;
@@ -1407,7 +1416,8 @@ body::after{
       height: 90px;
       left: 0px;
       top: 11.5px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -1415,7 +1425,7 @@ body::after{
     .taName{
       width: 181.52px;
       height: 36.12px;
-      left: 109.85px;
+      left: 112px;
       top: 0px;
       color: #666666;
       font-size: 24px;
@@ -1426,10 +1436,11 @@ body::after{
     .taScore{
       width: 273.03px;
       height: 100px;
+      line-height: 80px;
       left: 109.85px;
-      top: 45px;
+      top: 40px;
       color: #586776;
-      font-size: 100px;
+      font-size: 70px;
       text-align: left;
       position: absolute;
     }
@@ -1606,7 +1617,7 @@ body::after{
     .dom5{
       width: 180px;
       height: 51px;
-      right: 160px;
+      right: 300px;
       top: 1008.51px;
       background: url("../assets/web/again.png") no-repeat center;
       background-size: contain;
@@ -1764,7 +1775,8 @@ body::after{
       height: 70px;
       left: 0px;
       top: 1px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -1918,7 +1930,8 @@ body::after{
       height: 100px;
       left: 75.34px;
       top: 62.67px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       border-radius: 100px;
@@ -1950,7 +1963,7 @@ body::after{
       width: 175px;
       height: 49.33px;
       left: 196px;
-      top: 117.33px;
+      top: 60px;
       color: #ffffff;
       font-size: 42px;
       text-align: left;
@@ -2081,7 +2094,8 @@ body::after{
       height: 70px;
       left: 106px;
       top: 23.5px;
-      background: url("") no-repeat center;
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
       background-color: #000000;
       position: absolute;
@@ -2120,13 +2134,21 @@ body::after{
       position: absolute;
     }
 }
-#InfoSkin{
+// #InfoSkin{
+//   background: rgba(0,0,0,0);
+//   pointer-events: none;
+//   z-index: 8;
+//   display: none;
+// }
+.InfoSkin{
   background: rgba(0,0,0,0);
   pointer-events: none;
   z-index: 8;
-  display: none;
-}
-.InfoSkin{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;;
   .userScore{
     width: 249.76px;
     height: 90px;
@@ -2146,7 +2168,6 @@ body::after{
     background: url("../assets/web/leader.png") no-repeat center;
     background-size: contain;
     position: absolute;
-    display: none;
   }
   .scoreFrame{
     width: 264px;
@@ -2292,7 +2313,8 @@ body::after{
     height: 70px;
     left: 106px;
     top: 23.5px;
-    background: url("") no-repeat center;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     background-color: #000000;
     position: absolute;

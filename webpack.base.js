@@ -17,11 +17,18 @@ module.exports = {
         publicPath: '',
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js', '.vue' ]
+        extensions: [ '.tsx', '.ts', '.js', '.vue', '.jsx' ]
     },
     //模块,指定加载器,可配置各种加载器,这样就不担心less等文件的编译问题，这里用不到所以没写
     module: {
         rules: [
+            {
+                test: /\.js|jsx$/, 
+                loader: 'babel-loader',
+                include: [
+                    path.resolve(__dirname, "src")
+                ]
+            },
             {
                 test: /\.(woff2?|eot|ttf|otf)$/i,
                 include: [path.resolve("./src")],
@@ -30,7 +37,7 @@ module.exports = {
                   options: {
                     limit: 2048,
                     name: 'font/[name].[hash:7].[ext]',
-                    outputPath: '/',
+                    outputPath: '',
                   },
                 },
             },
@@ -61,7 +68,7 @@ module.exports = {
                     limit: 10000,
                     name: 'img/[name].[hash:7].[ext]',
                     //图片最终请求的路径
-                    publicPath: '/'
+                    publicPath: ''
                 }
             }
         ]
@@ -80,10 +87,24 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: 'css/[name].css'
+            filename: '[name].css'
         }),
         new CopyWebpackPlugin([
             {from: './static', to: './static'}
         ])
-    ]
+    ],
+    optimization: {
+        splitChunks: {
+            chunks: 'initial',
+            cacheGroups: {
+                vendor: {
+                    test: /node_modules/,
+                    priority: 10,
+                    chunks: 'all',
+                    enforce: true,
+                    name: 'vendor'
+                }
+            }
+        }
+    }
 };

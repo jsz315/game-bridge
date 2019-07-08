@@ -13,7 +13,8 @@ import './common/tooler';
 import './css/all.less';
 // import './assets/font/Chainreact Block Boxter.css';
 import './ts/Main.ts';
-import './js/page';
+// import './js/page';
+import './js/index.js';
 
 // httpGet('/static/user.json').then(res=>{
 //     console.log(res);

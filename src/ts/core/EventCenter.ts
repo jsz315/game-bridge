@@ -37,7 +37,7 @@ export default class EventCenter{
 
     public static INIT_GAME:string = "init game";
 
-    public static sender:HTMLElement = document.getElementById("renderCanvas");
+    public static sender:HTMLElement = document.getElementById("event");
 
     public static on(messageId:string, callback:Function){
         EventCenter.sender.addEventListener(messageId, (e:CustomEvent)=>{

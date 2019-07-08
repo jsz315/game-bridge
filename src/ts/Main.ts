@@ -24,6 +24,15 @@ import EventCenter from './core/EventCenter';
 // }, 1200);
 
 
-let game = new Game('renderCanvas');
-game.createScene();
-game.animate();
+// let game = new Game('renderCanvas');
+// game.createScene();
+// game.animate();
+
+var game:Game = null;
+EventCenter.on(EventCenter.INIT_GAME, ()=>{
+    if(game == null){
+        game = new Game('renderCanvas');
+        game.createScene();
+        game.animate();
+    }
+})
